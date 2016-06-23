@@ -1,0 +1,6 @@
+name = Drush example
+description = Drush examples.
+core = 7.x
+package = Examples
+files[] = drush_example.test
+

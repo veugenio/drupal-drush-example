@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * Implements hook_menu().
+ */
+function drush_example_menu() {
+  $items = array();
+
+  // Simplest batch implementation.
+  $items['drush-example'] = array(
+    'title' => 'Drush examples',
+    'page callback' => 'drush_examples',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+
+function drush_examples() {
+  return t('Some drush examples');
+}
