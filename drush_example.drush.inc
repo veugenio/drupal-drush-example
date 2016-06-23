@@ -78,7 +78,7 @@ function drush_drush_example_example_batch() {
 }
 
 /**
- * Drush operation.
+ * Drush batch operation.
  */
 function drush_example_batch_operation($context) {
   $context['message'] = t('Message example');
