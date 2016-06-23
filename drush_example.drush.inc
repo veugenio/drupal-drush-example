@@ -23,6 +23,27 @@ function drush_example_drush_command() {
     'description' => dt('Run batch.'),
   );
 
+  // Batch.
+  $items['example-3'] = array(
+    'description' => 'Drush com argumentos.',
+    'arguments' => array(
+      'argumento' => 'Um argumento exemplo.'
+    ),
+    'callback' => 'drush_example_3',
+    'examples' => array(
+      'drush example-3 teste' => 'Exibe o texto "teste"',
+      'drush example-3 "mais um teste"' => 'Exibe o texto "teste"',
+      'drush etres teste' => 'Exibe o texto "teste"',
+    ),
+    'required-arguments' => 1,
+    'aliases' => array('etres'),
+    'options' => array(
+      'nada' => array(
+         'description' => 'Opção exemplo',
+      ),
+    )
+  );
+
   return $items;
 }
 
@@ -62,4 +83,16 @@ function drush_drush_example_example_batch() {
 function drush_example_batch_operation($context) {
   $context['message'] = t('Message example');
   sleep(1);
+}
+
+/**
+ * Command with params.
+ */
+function drush_example_3($argumento) {
+  drush_print($argumento);
+  
+  $option = drush_get_option('nada', 0);
+  if ($option) {
+    drush_print('Nada, nada, nada... nada.');
+  }
 }
